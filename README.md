@@ -1,5 +1,5 @@
 ### Lee ###
-基于jQuery的表单校验插件
+基于jQuery的表单校验插件<br/>
 文件：src/lee.js
 
 ### 使用方法 ###
