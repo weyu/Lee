@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link href="plug/flat-ui/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Loading Flat UI -->
+    <link href="plug/flat-ui/css/flat-ui.css" rel="stylesheet">
+
+	<style type="text/css">
+		*{padding: 0; margin: 0;}
+		body{background-color: #eee; }
+		body,input,textarea,.form-control{font-family:"Open Sans","Lato",Arial,"Hiragino Sans GB","Microsoft YaHei","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;}
+		.lee-body{position: relative;}
+		.menu{background-color: #333; width: 200px; height: 100%; position: absolute; left: 0; top: 0;}
+		.content{min-height: 100vh; padding: 20px 20px 20px 220px; width: 100%; box-sizing: border-box;}
+		.lee-box{background-color: #fff; padding: 20px 80px;}
+		label{font-weight: bold;}
+		.btn-mg{padding-left: 60px; padding-right: 60px;}
+	</style>
+</head>
+<body>
+
+	<div class="lee-body">
+		<div class="menu"></div>
+		<div class="content">
+			<div class="row ">
+				<div class="col-sm-6">
+					<form class="lee-box" id="lee-form" novalidate="false">
+						<div class="form-group">
+							<label class="">区间：</label>
+							<div class="form-inline">
+								<input type="text" name="qujian1" id="qujian1" class="form-control" style="width: 48%">
+								<input type="text" name="qujian2" id="qujian2" class="form-control" style="width: 50%">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="">姓名：</label>
+							<input type="text" name="name" class="form-control">
+						</div>
+						<div class="form-group">
+							<label class="">手机：</label>
+							<input type="text" name="mobile" class="form-control">
+						</div>
+						<div class="form-group">
+							<label class="">邮箱：</label>
+							<input type="email" name="email" class="form-control">
+						</div>
+						<div class="form-group">
+							<label class="">座机：</label>
+							<input type="text" name="phone" class="form-control">
+						</div>
+						<div class="form-group">
+							<label class="">QQ：</label>
+							<input type="text" name="qq" class="form-control">
+						</div>
+						<div class="form-group">
+							<label class="">密码：</label>
+							<input type="password" name="password" class="form-control">
+							<span class="help-block">以字母开头，长度在6-18之间，只能包含字符、数字和下划线.</span>
+						</div>
+						<div class="form-group">
+							<label class="">确认密码：</label>
+							<input type="password" name="qr_password" class="form-control">
+						</div>
+						<div class="form-group">
+							<label class="">必填：</label>
+							<input type="text" name="required" class="form-control" required>
+						</div>
+						<div class="form-group">
+							<button class="btn btn-primary btn-mg" type="submit">提交</button>
+						</div>
+						<div class="form-group">
+							<button class="btn btn-primary btn-mg" id="btn1" type="button">按钮1</button>
+							<button class="btn btn-primary btn-mg" id="btn2" type="button">按钮2</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<script src="plug/flat-ui/js/flat-ui.min.js"></script>
+	<script src="plug/layer/layer.js"></script>
+
+	<script src="src/lee.js"></script>
+	<script type="text/javascript">
+
+		$('#lee-form').Lee({
+			name:{
+				qujian1:{
+					number: true,
+					required:function(){
+						return ( $.trim($('#qujian2').val())=='' );
+					}
+				},
+				qujian2:{
+					number: true,
+					required:function(){
+						return ( $.trim($('#qujian1').val())=='' );
+					},
+					compare:'qujian1'
+				},
+				name:{
+					name: true,
+					required:false
+				},
+				mobile:{
+					mobile: true,
+					required:true
+				},
+				email:{
+					email: true
+				},
+				phone:{
+					phone: true
+				},
+				qq:{
+					qq: true
+				},
+				password:{
+					password: true
+				},
+				qr_password:{
+					password:true,
+					equalTo:"password"
+				}
+			},
+			message:{
+				qujian1:{
+					number:"请输入区间"
+				},
+				qujian2:{
+					compare:"客流量开始区间必须小于结束区间",
+					number:"请输入区间"
+				}
+			},
+			submit: function(form){
+				layer.msg('验证通过');
+				//form.submit();
+			},
+			submitLoad: false,
+			events:'#btn1, #btn2',
+			shake:true
+		});
+	</script>
+
+</body>
+</html>
