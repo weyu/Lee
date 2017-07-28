@@ -34,7 +34,6 @@ $('#lee-form').Lee({
     shake:true 
 });
 ```
-### 本插件自带的规则有： ###
 <table>
     <thead>
         </tr>
