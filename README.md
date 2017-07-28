@@ -100,5 +100,5 @@ $('#lee-form').Lee({
 具体可以在本项目根目录的demo.html文件查看效果
 
 ### 更新记录： ###
-v1.0 2017年7月28日
+<a href="https://github.com/weyu/Lee/tree/v1.0">v1.0 2017年7月28日</a><br/>
 说明：第一个版本
