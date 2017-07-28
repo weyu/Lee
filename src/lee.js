@@ -1,7 +1,7 @@
 /*! 
 Version：Lee v1.0
 Author: Charles
-Github: xxx
+Github: https://github.com/weyu/Lee.git
 License: Apache License 2.0
 */
 
